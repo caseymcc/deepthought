@@ -1,0 +1,32 @@
+[
+    {
+        "name": "task1",
+        "description": "task1 description",
+        "prompt": "echo task1",
+        "agents":
+        [
+            {
+                "name": "agent1",
+                "agent": "Assistant Agent",
+                "type": "LLM"
+            },
+            {
+                "name": "agent2",
+                "agent": "Coder Agent",
+                "type": "LLM"
+            }
+        ],
+        "connections":
+        [
+            {
+                "name": "chatRoom1",
+                "type": "Chat",
+                "agents":
+                [
+                    "agent1",
+                    "agent2"
+                ]
+            }
+        ]
+    }
+]

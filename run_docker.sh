@@ -2,11 +2,13 @@
 
 forceStart=false
 rebuild=false
-while getopts "sr" flag
+print_logs=false
+while getopts "srl" flag
 do
     case "${flag}" in
         s) forceStart=true;;
         r) rebuild=true;;
+        l) print_logs=true;;
     esac
 done
 
@@ -15,6 +17,12 @@ DOCKER_NAME="autogen_image"
 CONTAINER_NAME="autogen_container"
 PLATFORM=""
 USER_NAME=$USER
+
+if [ "$print_logs" = true ]; then
+  echo "Printing logs"
+  docker logs $CONTAINER_NAME
+  exit 0
+fi
 
 if [ "$rebuild" = true ] || [ "$forceStart" = true ]; then
 
@@ -51,9 +59,11 @@ exists=$(docker ps -aq -f name=$CONTAINER_NAME)
 if [ ! "$exists" ]; then
   echo "Creating docker"
   docker create -it --name $CONTAINER_NAME \
-    --net=host \
-    -v ${PWD}:/home/${USER}/$(basename ${PWD}) \
-    -v ${PWD}/storage:/home/${USER}/$(basename ${PWD})/storage \
+    -p 8081:8081 \
+    -v ${PWD}/source:/home/${USER}/workspace \
+    -v ${PWD}/storage:/home/${USER}/storage \
+    -v ${PWD}/apis/autogen:/home/${USER}/apis/autogen \
+    -v ${PWD}/apis/AutoGPT:/home/${USER}/apis/AutoGPT \
     $DOCKER_NAME
 fi
 

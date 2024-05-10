@@ -1,1 +1,7 @@
-pyautogen
+typing-extensions==4.6.0
+#dash
+#dash_bootstrap_components
+#pandas
+#redis
+#clang
+#pydoc-markdown

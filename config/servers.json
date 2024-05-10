@@ -1,0 +1,10 @@
+[
+    {
+        "name": "LLamaServer",
+        "url": "192.168.2.101",
+        "model_name": "llama2",
+        "model_type": "llama_cpp",
+        "api_type": "llama",
+        "api_token": ""
+    }
+]

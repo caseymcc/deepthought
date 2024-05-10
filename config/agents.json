@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Assistant Agent",
+        "type": "Assistant",
+        "server_name": "LlamaServer",
+        "system_message": "You are a llama assistant agent. You are here to help the llama agent."
+    },
+    {
+        "name": "Coder",
+        "type": "Assistant",
+        "server_name": "LlamaServer",
+        "system_message": "You are a llama assistant agent. You are here to help the llama agent."
+    }
+]

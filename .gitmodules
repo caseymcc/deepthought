@@ -1,0 +1,6 @@
+[submodule "autogen"]
+	path = apis/autogen
+	url = git@github.com:microsoft/autogen.git
+[submodule "apis/AutoGPT"]
+	path = apis/AutoGPT
+	url = git@github.com:Significant-Gravitas/AutoGPT.git
